@@ -14,7 +14,7 @@ function App() {
   }
   return (
     <>
-      <div>
+      <div className="container mt-5 p-5">
         <h1>Articoli Di Giornale</h1>
         <ul className="list-group">
           {
@@ -29,10 +29,11 @@ function App() {
         {/* form nuovo articolo */}
         <form onSubmit={addArticle}>
           <input type="text"
-            className="form-control"
+            className="form-control mt-3"
             placeholder="Nuovo Articolo"
             value={newArticles}
             onChange={(e) => setNewArticles(e.target.value)} />
+          <button className="btn btn-primary mt-2">ADD</button>
         </form>
       </div>
 
