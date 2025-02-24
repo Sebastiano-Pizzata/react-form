@@ -1,5 +1,5 @@
 import { useState } from "react"
-const initialArticles = ["Lotta al cambiamento climatico", "Tecnologia e privacy", "Crisi economica globale"]
+const initialArticles = ["Lotta al cambiamento climatico", "Tecnologia e privacy", "Crisi economica globale", "Politica Estera"]
 
 function App() {
 
@@ -12,15 +12,22 @@ function App() {
     setArticles([...articles, newArticles])
     setNewArticles("")
   }
+
+  const removeArticle = (indiceElemento) => {
+    const arrayArticoloClone = articles.filter((element, index) => index != indiceElemento)
+    return setArticles(arrayArticoloClone)
+  }
+
   return (
     <>
-      <div className="container mt-5 p-5">
+      <div className="container mt-5">
         <h1>Articoli Di Giornale</h1>
-        <ul className="list-group">
+        <ul className="list-group mt-4">
           {
             articles.map((element, index) => {
               return (
-                <li key={index} className="list-group-item">{element}</li>
+                <li key={index} className="list-group-item">{element}
+                  <button className="btn btn-danger rounded-circle float-end" onClick={() => removeArticle(index)}><i class="fa-solid fa-xmark"></i></button></li>
               )
             })
           }
